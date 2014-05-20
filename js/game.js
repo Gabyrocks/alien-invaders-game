@@ -119,11 +119,24 @@ Player.prototype.draw = function(canvas) {
 
 Player.prototype.die = function() {
   GameAudio.play('die');
-  Game.callbacks['die']();
+    Game.callbacks['loseLife']();
     loseLife();
-    
+     document.getElementById('lives').innerHTML="Lives : " + lives;
+    if(lives <= 0){
+        Game.callbacks['die']();
+        lives = 3;
+    };
     
 }
+
+   //if(lives > 0){
+  //Game.callbacks['loseLife']();
+    //loseLife();
+    
+   // }else{
+        //Game.callbacks['die']();
+    //}
+    
 
 // CONTROL MOVING ALONG THE AXIS - LEFT/RIGHT/UP/DOWN / THE SPEED
 Player.prototype.step = function(dt) {

@@ -47,10 +47,22 @@
 
 // THE LOADING GAME SCREEN & DEFINE START CALL BACK
   
+  
   function loseLife(){
   if(this.Player) lives = lives -1;
     document.getElementById('lives').innerHTML="Lives : " + lives;
   }
+
+
+function loseLifeScreen() {
+    var screen = new GameScreen("Alien Invaders","You loose a life press space to resart",
+                                 function() {
+                                     Game.loadBoard(new GameBoard(1));
+                                 });
+    Game.loadBoard(screen);
+    Game.loop();
+  }
+
 
   function startGame() {
     var screen = new GameScreen("Alien Invaders","press space to start",
@@ -65,6 +77,7 @@
     var screen = new GameScreen("Game Over","(press space to restart)",
                                  function() {
                                      Game.loadBoard(new GameBoard(1));
+                                      document.getElementById('lives').innerHTML="Lives : " + lives;
                                  });
     Game.loadBoard(screen);
   }
@@ -88,7 +101,9 @@
                        Game.initialize("#gameboard", levelData, spriteData,
                                       { "start": startGame,
                                         "die"  : endGame,
+                                       "loseLife" : loseLifeScreen,
                                         "win"  : winGame });
+                                        
                    });
    });
 
