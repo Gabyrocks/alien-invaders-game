@@ -42,9 +42,15 @@
     'alien2': { sx: 0,  sy: 18, w: 23, h: 18, cls: Alien, frames: 2 },
     'player': { sx: 0,  sy: 36, w: 26, h: 17, cls: Player },
     'missile': { sx: 0,  sy: 86, w: 3,  h: 14, cls: Missile }
+      
   }
 
 // THE LOADING GAME SCREEN & DEFINE START CALL BACK
+  
+  function loseLife(){
+  if(this.Player) lives = lives -1;
+    document.getElementById('lives').innerHTML="Lives : " + lives;
+  }
 
   function startGame() {
     var screen = new GameScreen("Alien Invaders","press space to start",
