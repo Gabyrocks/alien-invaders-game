@@ -1,5 +1,3 @@
-
-
 //STARTING SCORE
 
 var score = 0;
@@ -14,7 +12,7 @@ var AlienFlock = function AlienFlock() {
   this.invulnrable = true;
   this.dx = 10; this.dy = 0;
   this.hit = 1; this.lastHit = 0;
-  this.speed = 10;
+  this.speed = 15;
 
   this.draw = function() {};
 
@@ -66,17 +64,14 @@ var Alien = function Alien(opts) {
 Alien.prototype.draw = function(canvas) {  Sprites.draw(canvas,this.name,this.x,this.y,this.frame);
 }
 
-//THIS HAPPENS WHEN THE ALIEN DIES
-//AUDIO PLAYS
-//REMOVES ALIEN
-//THE SPEED INCREMENTS WHEN THE ALIEN DIES
+//THIS HAPPENS WHEN THE ALIEN DIES, AUDIO PLAYS, REMOVES ALIEN, THE SPEED INCREMENTS WHEN THE ALIEN DIES
 Alien.prototype.die = function() {
   GameAudio.play('die');
 //THE SPEED EACH TIME YOU KILL AN ALIEN
-  this.flock.speed == 3;
+  this.flock.speed = 5;
   this.board.remove(this);
   score = score +1;
-    document.getElementById('score').innerHTML="Score : " + score;
+    document.getElementById('score').innerHTML="SCORE : " + score;
 }
 
 Alien.prototype.step = function(dt) {
@@ -90,7 +85,7 @@ Alien.prototype.step = function(dt) {
     this.x += this.mx;
     this.mx = 0;
     // THIS CHANGES / ADDS FRAMES FOR SPRITE SHEET %2
-    this.frame = (this.frame+1) % 2;
+    this.frame = (this.frame+1) %2;
     if(this.x > Game.width - Sprites.map.alien1.w * 2) this.flock.hit = -1;
     if(this.x < Sprites.map.alien1.w) this.flock.hit = 1;
   }
@@ -144,7 +139,8 @@ Player.prototype.step = function(dt) {
   if(this.x > Game.width-this.w) this.x = Game.width-this.w;
 
   if(this.y < 400) this.y = 400;
-  if(this.y > Game.height-this.h) this.h = Game.height-this.y;
+  if(this.height > Game.height) this.height = Game.height - this.y;
+    
 
     
   this.reloading--;

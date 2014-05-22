@@ -4,9 +4,7 @@ body{
    
     background-color: black;
     background-image: url(images/stars2.gif);
-    background-repeat:repeat;
-   
-    
+    background-repeat:repeat;    
     
 }
 
@@ -23,8 +21,8 @@ body{
 
 #game-wrapper #lives {
     color: white;
-    font-weight: 100;
-    font-family: monospace;
+    font-weight: 50;
+    font-family: arial bold;
     font-size: 30px;
     text-align: left;
     float: left;
@@ -33,8 +31,8 @@ body{
 
 #game-wrapper #score {
     color: white;
-    font-weight: 100;
-    font-family: monospace;
+    font-weight: 50;
+    font-family: arial bold;
     font-size: 30px;
     text-align: right;
     float: right;

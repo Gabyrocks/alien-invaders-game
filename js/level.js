@@ -50,12 +50,12 @@
   
   function loseLife(){
   if(this.Player) lives = lives -1;
-    document.getElementById('lives').innerHTML="Lives : " + lives;
+    document.getElementById('lives').innerHTML="LIVES : " + lives;
   }
 
 
 function loseLifeScreen() {
-    var screen = new GameScreen("Alien Invaders","You loose a life press space to resart",
+    var screen = new GameScreen("SCORE : "+score+" ","YOU HAVE "+lives+" LIVES LEFT",
                                  function() {
                                      Game.loadBoard(new GameBoard(1));
                                  });
