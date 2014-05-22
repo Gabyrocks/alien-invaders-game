@@ -1,3 +1,5 @@
+
+
 //STARTING SCORE
 
 var score = 0;
@@ -121,7 +123,7 @@ Player.prototype.die = function() {
   GameAudio.play('die');
     Game.callbacks['loseLife']();
     loseLife();
-     document.getElementById('lives').innerHTML="Lives : " + lives;
+    
     if(lives <= 0){
         Game.callbacks['die']();
         lives = 3;

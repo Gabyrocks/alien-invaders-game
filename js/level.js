@@ -61,6 +61,7 @@ function loseLifeScreen() {
                                  });
     Game.loadBoard(screen);
     Game.loop();
+
   }
 
 
@@ -101,11 +102,10 @@ function loseLifeScreen() {
                        Game.initialize("#gameboard", levelData, spriteData,
                                       { "start": startGame,
                                         "die"  : endGame,
-                                       "loseLife" : loseLifeScreen,
+                                        "loseLife" : loseLifeScreen,
                                         "win"  : winGame });
                                         
                    });
    });
-
 
 

@@ -1,0 +1,42 @@
+
+
+body{
+   
+    background-color: black;
+    background-image: url(images/stars2.gif);
+    background-repeat:repeat;
+   
+    
+    
+}
+
+#gameboard { 
+  display: block;
+
+}
+
+#game-wrapper { 
+    margin:0 auto; 
+    width: 500px;
+
+}
+
+#game-wrapper #lives {
+    color: white;
+    font-family: fantasy;
+    font-size: 30px;
+    text-align: left;
+    float: left;
+    padding: 10;
+}
+
+#game-wrapper #score {
+    color: white;
+    font-family: fantasy;
+    font-size: 30px;
+    text-align: right;
+    float: right;
+    padding: 10;
+    
+}
+
