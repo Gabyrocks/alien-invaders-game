@@ -73,7 +73,7 @@ Alien.prototype.draw = function(canvas) {  Sprites.draw(canvas,this.name,this.x,
 Alien.prototype.die = function() {
   GameAudio.play('die');
 //THE SPEED EACH TIME YOU KILL AN ALIEN
-  this.flock.speed += 5;
+  this.flock.speed == 3;
   this.board.remove(this);
   score = score +1;
     document.getElementById('score').innerHTML="Score : " + score;
@@ -131,26 +131,22 @@ Player.prototype.die = function() {
     
 }
 
-   //if(lives > 0){
-  //Game.callbacks['loseLife']();
-    //loseLife();
-    
-   // }else{
-        //Game.callbacks['die']();
-    //}
-    
+
 
 // CONTROL MOVING ALONG THE AXIS - LEFT/RIGHT/UP/DOWN / THE SPEED
 Player.prototype.step = function(dt) {
   if(Game.keys['left']) { this.x -= 100 * dt; }
   if(Game.keys['right']) { this.x += 100 * dt; }
-  if(Game.keys['up']) { this.y -= 100 * dt; }
+  if(Game.keys['up']) { this.y -= 100* dt; }
   if(Game.keys['down']) { this.y += 100* dt;}
-
 
   if(this.x < 0) this.x = 0;
   if(this.x > Game.width-this.w) this.x = Game.width-this.w;
 
+  if(this.y < 400) this.y = 400;
+  if(this.y > Game.height-this.h) this.h = Game.height-this.y;
+
+    
   this.reloading--;
 // CHANGES THE NUMBER + TYPES OF MISSILES < 10 
   if(Game.keys['fire'] && this.reloading <= 0 && this.board.missiles < 10) {
