@@ -47,20 +47,18 @@
 
 // THE LOADING GAME SCREEN & DEFINE START CALL BACK
   
-  
   function loseLife(){
   if(this.Player) lives = lives -1;
-    document.getElementById('lives').innerHTML="LIVES : " + lives;
+    document.getElementById('lives').innerHTML="LIVES : " + lives; 
   }
 
 
 function loseLifeScreen() {
-    var screen = new GameScreen("SCORE : "+score+" ","YOU HAVE "+lives+" LIVES LEFT",
+    var screen = new GameScreen("SCORE : "+score+" ","you have "+lives+" lives left",
                                  function() {
                                      Game.loadBoard(new GameBoard(1));
                                  });
     Game.loadBoard(screen);
-    Game.loop();
 
   }
 
@@ -75,10 +73,11 @@ function loseLifeScreen() {
   }
 
   function endGame() {
-    var screen = new GameScreen("Game Over","(press space to restart)",
+    var screen = new GameScreen("GAME OVER","press space to restart",
                                  function() {
                                      Game.loadBoard(new GameBoard(1));
-                                      document.getElementById('lives').innerHTML="Lives : " + lives;
+                                      document.getElementById('lives').innerHTML="LIVES : " + lives;
+                            
                                  });
     Game.loadBoard(screen);
   }
