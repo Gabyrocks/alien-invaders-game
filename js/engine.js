@@ -159,6 +159,8 @@ var GameBoard = function GameBoard(level_number) {
                                  Game.width/2, // X
                                  Game.height - Sprites.map['player'].h - 10); // Y
 
+  
+
     // LEVEL_DATA BECOMES "LEVEL"
 
     var flock = this.add(new AlienFlock());
@@ -170,10 +172,21 @@ var GameBoard = function GameBoard(level_number) {
                          (alien.w+10)*x,  // X
                          alien.h*y,       // Y
                          { flock: flock }); // Options
+            
+
+            
         }
       }
-    }
+    } 
+      
+   
+
   };
+       
+
+      
+    
+    
 
   this.nextLevel = function() { 
     return Game.level_data[level_number + 1] ? (level_number + 1) : false 

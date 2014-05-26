@@ -1,7 +1,7 @@
 //lOADING A LEVEL
 
   var levelData = { 
-     1:  [[0,0,0,0,0,0,0,0,0,0,0],
+     1:  [[0,0,0,3,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0],
@@ -40,10 +40,10 @@
   var spriteData = {
     'alien1': { sx: 0,  sy: 0,  w: 23, h: 18, cls: Alien, frames: 2 },
     'alien2': { sx: 0,  sy: 18, w: 23, h: 18, cls: Alien, frames: 2 },
+    'alien3': { sx: 0,  sy: 0,  w: 23, h: 18, cls: Ship, frames: 3 },
     'player': { sx: 0,  sy: 36, w: 26, h: 17, cls: Player },
     'missile': { sx: 0,  sy: 86, w: 3,  h: 14, cls: Missile },
-    'motherShip': { sx: 0,  sy: 36, w: 26, h: 17, cls: motherShip}
-      
+    
   }
 
 // THE LOADING GAME SCREEN & DEFINE START CALL BACK
@@ -66,6 +66,7 @@ function loseLifeScreen() {
 
   function startGame() {
     var screen = new GameScreen("Alien Invaders","press space to start",
+                                
                                  function() {
                                      Game.loadBoard(new GameBoard(1));
                                  });
@@ -78,6 +79,10 @@ function loseLifeScreen() {
                                  function() {
                                      Game.loadBoard(new GameBoard(1));
                                       document.getElementById('lives').innerHTML="LIVES : " + lives;
+                                      
+                                     score = 0;
+                                     document.getElementById('score').innerHTML="SCORE : " + score;
+                                     
                             
                                  });
     Game.loadBoard(screen);
