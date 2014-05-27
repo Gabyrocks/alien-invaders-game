@@ -104,7 +104,7 @@ Alien.prototype.step = function(dt) {
 
 Alien.prototype.fireSometimes = function() {
     // LOGIC TO SET FREQUENCY OF ALIEN FIRE - IF NUMBER IS LESS THAN 100 - SHOOT MISSILE
-      if(Math.random()*100 < 30) {
+      if(Math.random()*100 < 10) {
         this.board.addSprite('missile',this.x + this.w/2 - Sprites.map.missile.w/2,
                                       this.y + this.h, 
                                      { dy: 100 });
@@ -214,7 +214,7 @@ var ShipFlock = function ShipFlock() {
   this.invulnrable = true;
   this.dx = 10; this.dy = 0;
   this.hit = 1; this.lastHit = 0;
-  this.speed = 55;
+  this.speed = 20;
 
   this.draw = function() {};
 
@@ -253,7 +253,7 @@ var ShipFlock = function ShipFlock() {
 
 }
 
-////////////
+///MOTHERSHIP
 
 var Ship = function Ship(opts) {
   this.flock = opts['flock'];
@@ -281,16 +281,17 @@ Ship.prototype.step = function(dt) {
   this.mx += dt * this.flock.dx;
   this.y += this.flock.dy;
  // THE SPEED MOVEMENTS OF ATTACKER ALIENS
-  if(Math.abs(this.mx) > 2) {
-    if(this.y == this.flock.max_y[this.x]) {
+  if(Math.abs(this.mx / 2) > 2) {
+    //if(this.y == this.flock.max_y[this.x]) {
       this.fireSometimes();
-    }
+    //}
     this.x += this.mx;
     this.mx = 0;
     // THIS CHANGES / ADDS FRAMES FOR SPRITE SHEET %2
-    this.frame = (this.frame+1) %3;
-    if(this.x > Game.width - Sprites.map.alien3.w * 2) this.flock.hit = -1;
-    if(this.x < Sprites.map.alien3.w) this.flock.hit = 1;
+    this.frame = (this.frame+1) %2;
+      
+    //if(this.x > Game.width - Sprites.map.alien3.w * 2) this.flock.hit = -1;
+    //if(this.x < Sprites.map.alien3.w) this.flock.hit = 1;
   }
   return true;
 }
@@ -299,7 +300,7 @@ Ship.prototype.step = function(dt) {
 
 Ship.prototype.fireSometimes = function() {
     // LOGIC TO SET FREQUENCY OF ALIEN FIRE - IF NUMBER IS LESS THAN 100 - SHOOT MISSILE
-      if(Math.random()*100 < 100) {
+      if(Math.random()*100 < 10) {
         this.board.addSprite('missile',this.x + this.w/2 - Sprites.map.missile.w/2,
                                       this.y + this.h, 
                                      { dy: 100 });
