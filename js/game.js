@@ -1,5 +1,4 @@
 
-
 //STARTING SCORE
 
 var score = 0;
@@ -7,7 +6,6 @@ var score = 0;
 //NUMBER OF LIVES
 
 var lives = 3;
-
 
 //SPEED OF ALIENS - THE ALIEN FLOCK
 
@@ -17,7 +15,6 @@ var AlienFlock = function AlienFlock() {
   this.hit = 1; this.lastHit = 0;
   this.speed = 20;
   this.alive = true;
-    
     
   this.draw = function() {};
 
@@ -39,6 +36,7 @@ var AlienFlock = function AlienFlock() {
     } else {
       this.dy=0;
     }
+      
     this.dx = this.speed * this.hit;
 
     var max = {}, cnt = 0;
@@ -133,8 +131,6 @@ Player.prototype.die = function() {
         lives = 3;
         
         };
-    
-    
     
 }
 
@@ -280,8 +276,8 @@ Ship.prototype.die = function() {
 Ship.prototype.step = function(dt) {
   this.mx += dt * this.flock.dx;
   this.y += this.flock.dy;
- // THE SPEED MOVEMENTS OF ATTACKER ALIENS
-  if(Math.abs(this.mx / 2) > 2) {
+ // THE SPEED MOVEMENTS OF THE MOTHERSHIP
+  if(Math.abs(this.mx) > 10) {
     //if(this.y == this.flock.max_y[this.x]) {
       this.fireSometimes();
     //}
@@ -296,10 +292,8 @@ Ship.prototype.step = function(dt) {
   return true;
 }
 
-// THE ALIENS SHOOTING FIRE
-
+// THE MOTHERSHIP MISSILE FREQUENCY
 Ship.prototype.fireSometimes = function() {
-    // LOGIC TO SET FREQUENCY OF ALIEN FIRE - IF NUMBER IS LESS THAN 100 - SHOOT MISSILE
       if(Math.random()*100 < 10) {
         this.board.addSprite('missile',this.x + this.w/2 - Sprites.map.missile.w/2,
                                       this.y + this.h, 

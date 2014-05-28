@@ -1,3 +1,4 @@
+
 var Game = new function() {
 
     // KEYBOARD CONTROL - ADDING NEW KEYS - JAVASCRIPT KEYCODES - LINK IN GAME.JS
@@ -72,12 +73,13 @@ var GameScreen = function GameScreen(text,text2,callback) {
 
   this.render = function(canvas) {
     
+    
     canvas.clearRect(0,0,Game.width,Game.height);
-    canvas.font = "bold 40px arial";
+    canvas.font = "50px Squada One";
     var measure = canvas.measureText(text);  
     canvas.fillStyle = "#FFFFFF";
     canvas.fillText(text,Game.width/2 - measure.width/2,Game.height/2);
-    canvas.font = "bold 20px arial";
+    canvas.font = "50px Squada One";
     var measure2 = canvas.measureText(text2);
     canvas.fillText(text2,Game.width/2 - measure2.width/2,Game.height/2 + 40);
       
@@ -250,3 +252,15 @@ var GameAudio = new function() {
 };
 
 
+  WebFontConfig = {
+    google: { families: [ 'Squada+One::latin' ] }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })(); 

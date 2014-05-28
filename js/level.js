@@ -65,7 +65,7 @@ function loseLifeScreen() {
 
 
   function startGame() {
-    var screen = new GameScreen("Alien Invaders","press space to start",
+    var screen = new GameScreen("ALIEN INVADERS","press space to start",
                                 
                                  function() {
                                      Game.loadBoard(new GameBoard(1));
@@ -90,7 +90,7 @@ function loseLifeScreen() {
 
 
   function winGame() {
-    var screen = new GameScreen("You Win!","(press space to restart)",
+    var screen = new GameScreen("You Win!","press space to restart",
                                  function() {
                                      Game.loadBoard(new GameBoard(1));
                                  });
