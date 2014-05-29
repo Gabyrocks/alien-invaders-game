@@ -65,7 +65,7 @@ function loseLifeScreen() {
 
 
   function startGame() {
-    var screen = new GameScreen("ALIEN INVADERS","press space to start",
+    var screen = new GameScreen("ALIEN INVADERS","spacebar to start", "instructions",
                                 
                                  function() {
                                      Game.loadBoard(new GameBoard(1));

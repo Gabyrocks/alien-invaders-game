@@ -27,7 +27,7 @@ var Game = new function() {
     this.level_data = level_data;
     this.callbacks = callbacks;
     Sprites.load(sprite_data,this.callbacks['start']);
-  };
+   };
 
   // RUN THE GAME LOOP
 
@@ -64,27 +64,71 @@ var Sprites = new function() {
   };
 }
 
-// THE LOADING SCREEN
+///////////////////////////
 
-var GameScreen = function GameScreen(text,text2,callback) {
+// THE LOADING SCREEN - ADDING TEXT LINES & TEXT COLOUR
+
+var GameScreen = function GameScreen(text,text2,text3,callback) {
   this.step = function(dt) {
     if(Game.keys['fire'] && callback) callback();
   };
 
   this.render = function(canvas) {
     
-    
     canvas.clearRect(0,0,Game.width,Game.height);
     canvas.font = "50px Squada One";
     var measure = canvas.measureText(text);  
     canvas.fillStyle = "#FFFFFF";
     canvas.fillText(text,Game.width/2 - measure.width/2,Game.height/2);
-    canvas.font = "50px Squada One";
+    canvas.font = "40px Squada One";
+    canvas.fillStyle = "#BDBDBD";
     var measure2 = canvas.measureText(text2);
     canvas.fillText(text2,Game.width/2 - measure2.width/2,Game.height/2 + 40);
+    canvas.font = "40px Squada One";
+    canvas.fillStyle = "#848484";
+    var measure3 = canvas.measureText(text3);
+    canvas.fillText(text3,Game.width/2 - measure3.width/2,Game.height/2 + 80);
+      
       
   };
 };
+
+///
+
+document.addEventListener("DOMContentLoaded", init, false);
+
+      function init()
+      {
+        var canvas = document.getElementById("gameboard");
+        canvas.addEventListener("mousedown", getPosition, false);
+      }
+
+      function getPosition()
+      {
+        var x = new Number();
+        var y = new Number();
+        var canvas = document.getElementById("gameboard");
+
+        if (event.x != undefined && event.y != undefined)
+        {
+          x = event.x;
+          y = event.y;
+        }
+        else // Firefox method to get the position
+        {
+          x = event.clientX + document.body.scrollLeft +
+              document.documentElement.scrollLeft;
+          y = event.clientY + document.body.scrollTop +
+              document.documentElement.scrollTop;
+        }
+
+        x -= canvas.offsetLeft;
+        y -= canvas.offsetTop;
+
+        alert("hey " + x + "  y: " + y);
+      }
+
+///////
 
 //ADD OR REMOVE SPRITES
 
@@ -184,10 +228,6 @@ var GameBoard = function GameBoard(level_number) {
    
 
   };
-       
-
-      
-    
     
 
   this.nextLevel = function() { 
@@ -251,6 +291,7 @@ var GameAudio = new function() {
   };
 };
 
+// ADDING CUSTOM WEB FONTS
 
   WebFontConfig = {
     google: { families: [ 'Squada+One::latin' ] }
@@ -264,3 +305,4 @@ var GameAudio = new function() {
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(wf, s);
   })(); 
+
