@@ -55,7 +55,7 @@
 
 
 function loseLifeScreen() {
-    var screen = new GameScreen("SCORE : "+score+" ","you have "+lives+" lives left",
+    var screen = new GameScreen("SCORE : "+score+" ","you have "+lives+" lives left", "     ",
                                  function() {
                                      Game.loadBoard(new GameBoard(1));
                                  });
@@ -75,7 +75,7 @@ function loseLifeScreen() {
   }
 
   function endGame() {
-    var screen = new GameScreen("GAME OVER","press space to restart",
+    var screen = new GameScreen("GAME OVER","SCORE : "+score+" ",
                                  function() {
                                      Game.loadBoard(new GameBoard(1));
                                       document.getElementById('lives').innerHTML="LIVES : " + lives;

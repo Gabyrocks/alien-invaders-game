@@ -1,6 +1,7 @@
 
 var Game = new function() {
 
+
     // KEYBOARD CONTROL - ADDING NEW KEYS - JAVASCRIPT KEYCODES - LINK IN GAME.JS
 
   var KEY_CODES = { 37:'left', 39:'right', 32 :'fire', 38:'up', 40:'down'};
@@ -64,7 +65,6 @@ var Sprites = new function() {
   };
 }
 
-///////////////////////////
 
 // THE LOADING SCREEN - ADDING TEXT LINES & TEXT COLOUR
 
@@ -93,42 +93,33 @@ var GameScreen = function GameScreen(text,text2,text3,callback) {
   };
 };
 
-///
+////INSTRUCTIONS MENU
+
 
 document.addEventListener("DOMContentLoaded", init, false);
 
-      function init()
+      function init() 
       {
         var canvas = document.getElementById("gameboard");
         canvas.addEventListener("mousedown", getPosition, false);
+      
       }
 
       function getPosition()
       {
-        var x = new Number();
-        var y = new Number();
         var canvas = document.getElementById("gameboard");
+        var x = event.x;
+        var y = event.y;
+        
+          x -= canvas.offsetLeft;
+          y -= canvas.offsetTop;
 
-        if (event.x != undefined && event.y != undefined)
-        {
-          x = event.x;
-          y = event.y;
-        }
-        else // Firefox method to get the position
-        {
-          x = event.clientX + document.body.scrollLeft +
-              document.documentElement.scrollLeft;
-          y = event.clientY + document.body.scrollTop +
-              document.documentElement.scrollTop;
-        }
+        if (x < 350 && y > 300){
 
-        x -= canvas.offsetLeft;
-        y -= canvas.offsetTop;
-
-        alert("hey " + x + "  y: " + y);
+        alert("Instructions Box");
       }
+    }
 
-///////
 
 //ADD OR REMOVE SPRITES
 
