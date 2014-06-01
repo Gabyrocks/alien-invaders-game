@@ -93,6 +93,8 @@ var GameScreen = function GameScreen(text,text2,text3,callback) {
   };
 };
 
+////MENU GAME SCREEN
+
 ////INSTRUCTIONS MENU
 
 
@@ -115,8 +117,10 @@ document.addEventListener("DOMContentLoaded", init, false);
           y -= canvas.offsetTop;
 
         if (x < 350 && y > 300){
-
-        alert("Instructions Box");
+         
+            
+       //alert("Instructions Box");
+            menuScreen();
       }
     }
 

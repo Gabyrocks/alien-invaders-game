@@ -63,6 +63,15 @@ function loseLifeScreen() {
 
   }
 
+function menuScreen() {
+    var screen = new GameScreen("SPACEBAR TO START","MOTERSHIP +3", "ALIEN +1",
+                                 function() {
+                                     Game.loadBoard(new GameBoard(1));
+                                 });
+    Game.loadBoard(screen);
+
+  }
+
 
   function startGame() {
     var screen = new GameScreen("ALIEN INVADERS","spacebar to start", "instructions",
@@ -108,6 +117,7 @@ function loseLifeScreen() {
                                       { "start": startGame,
                                         "die"  : endGame,
                                         "loseLife" : loseLifeScreen,
+                                        "menu" : menuScreen,
                                         "win"  : winGame });
                                         
                    });
