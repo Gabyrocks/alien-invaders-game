@@ -93,7 +93,32 @@ var GameScreen = function GameScreen(text,text2,text3,callback) {
   };
 };
 
-////MENU GAME SCREEN
+////INSTRUCTIONS SCREEN
+
+var HelpPage = function HelpPage(text,text2,text3,callback) {
+  this.step = function(dt) {
+    if(Game.keys['fire'] && callback) callback();
+  };
+
+  this.render = function(canvas) {
+    
+    canvas.clearRect(0,0,Game.width,Game.height);
+    canvas.font = "10px Squada One";
+    var measure = canvas.measureText(text);  
+    canvas.fillStyle = "#FFFFFF";
+    canvas.fillText(text,Game.width/2 - measure.width/2,Game.height/2);
+    canvas.font = "40px Squada One";
+    canvas.fillStyle = "#BDBDBD";
+    var measure2 = canvas.measureText(text2);
+    canvas.fillText(text2,Game.width/2 - measure2.width/2,Game.height/2 + 40);
+    canvas.font = "40px Squada One";
+    canvas.fillStyle = "#848484";
+    var measure3 = canvas.measureText(text3);
+    canvas.fillText(text3,Game.width/2 - measure3.width/2,Game.height/2 + 80);
+      
+      
+  };
+};
 
 ////INSTRUCTIONS MENU
 
