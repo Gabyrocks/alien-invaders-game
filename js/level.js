@@ -64,7 +64,7 @@ function loseLifeScreen() {
   }
 
 function menuScreen() {
-    var screen = new HelpPage("SPACEBAR TO START","MOTERSHIP +3", "ALIEN +1",
+    var screen = new HelpPage("k 8","+1 points","2","+3 points","spacebar to start",
                                  function() {
                                      Game.loadBoard(new GameBoard(1));
                                  });
@@ -109,7 +109,7 @@ function menuScreen() {
 //AUDIO FUNCTIONS - CHANGE AUDIO FILES HERE
 
   $(function() {
-    GameAudio.load({ 'fire' : 'media/laser.ogg', 'die' : 'media/explosion.ogg' }, 
+    GameAudio.load({ 'fire' : 'media/zapper.ogg', 'ShipSound' : 'media/ShipSound.ogg', 'die' : 'media/AlienDie.ogg' }, 
                    
                   //GAME INITIALIZE
                    function() { 

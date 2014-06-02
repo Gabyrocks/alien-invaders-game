@@ -95,7 +95,7 @@ var GameScreen = function GameScreen(text,text2,text3,callback) {
 
 ////INSTRUCTIONS SCREEN
 
-var HelpPage = function HelpPage(text,text2,text3,callback) {
+var HelpPage = function HelpPage(text,text2,text3,text4,text5,callback) {
   this.step = function(dt) {
     if(Game.keys['fire'] && callback) callback();
   };
@@ -103,18 +103,26 @@ var HelpPage = function HelpPage(text,text2,text3,callback) {
   this.render = function(canvas) {
     
     canvas.clearRect(0,0,Game.width,Game.height);
-    canvas.font = "40px Squada One";
+    canvas.font = "40px Invaders";
     var measure = canvas.measureText(text);  
     canvas.fillStyle = "#FFFFFF";
     canvas.fillText(text,Game.width/2 - measure.width/2,Game.height/2);
-    canvas.font = "40px Squada One";
+    canvas.font = "30px Squada One";
     canvas.fillStyle = "#BDBDBD";
     var measure2 = canvas.measureText(text2);
-    canvas.fillText(text2,Game.width/2 - measure2.width/2,Game.height/2 + 40);
-    canvas.font = "40px Squada One";
-    canvas.fillStyle = "#848484";
+    canvas.fillText(text2,Game.width/2 - measure2.width/2,Game.height/2 + 50);
+    canvas.font = "40px Invaders";
+    canvas.fillStyle = "#FFFFFF";
     var measure3 = canvas.measureText(text3);
-    canvas.fillText(text3,Game.width/2 - measure3.width/2,Game.height/2 + 80);
+    canvas.fillText(text3,Game.width/2 - measure3.width/2,Game.height/2 + 110);
+    canvas.font = "30px Squada One";
+    canvas.fillStyle = "#848484";
+    var measure4 = canvas.measureText(text4);
+    canvas.fillText(text4,Game.width/2 - measure4.width/2,Game.height/2 + 150);
+    canvas.font = "30px Squada One";
+    canvas.fillStyle = "#848484";
+    var measure5 = canvas.measureText(text5);
+    canvas.fillText(text5,Game.width/2 - measure5.width/2,Game.height/2 + 200);
       
       
   };

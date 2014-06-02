@@ -263,9 +263,8 @@ var Ship = function Ship(opts) {
 Ship.prototype.draw = function(canvas) {  Sprites.draw(canvas,this.name,this.x,this.y,this.frame);
 }
 
-//THIS HAPPENS WHEN THE ALIEN DIES, AUDIO PLAYS, REMOVES ALIEN, THE SPEED INCREMENTS WHEN THE ALIEN DIES
 Ship.prototype.die = function() {
-  GameAudio.play('die');
+  GameAudio.play('ShipSound');
 //THE SPEED EACH TIME YOU KILL AN ALIEN
   this.board.remove(this);
   score = score +3;
@@ -278,16 +277,14 @@ Ship.prototype.step = function(dt) {
   this.y += this.flock.dy;
  // THE SPEED MOVEMENTS OF THE MOTHERSHIP
   if(Math.abs(this.mx) > 10) {
-    //if(this.y == this.flock.max_y[this.x]) {
+    
       this.fireSometimes();
-    //}
+   
     this.x += this.mx;
     this.mx = 0;
     // THIS CHANGES / ADDS FRAMES FOR SPRITE SHEET %2
     this.frame = (this.frame+1) %2;
       
-    //if(this.x > Game.width - Sprites.map.alien3.w * 2) this.flock.hit = -1;
-    //if(this.x < Sprites.map.alien3.w) this.flock.hit = 1;
   }
   return true;
 }
