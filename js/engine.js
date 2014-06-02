@@ -103,7 +103,7 @@ var HelpPage = function HelpPage(text,text2,text3,callback) {
   this.render = function(canvas) {
     
     canvas.clearRect(0,0,Game.width,Game.height);
-    canvas.font = "10px Squada One";
+    canvas.font = "40px Squada One";
     var measure = canvas.measureText(text);  
     canvas.fillStyle = "#FFFFFF";
     canvas.fillText(text,Game.width/2 - measure.width/2,Game.height/2);
@@ -140,12 +140,10 @@ document.addEventListener("DOMContentLoaded", init, false);
         
           x -= canvas.offsetLeft;
           y -= canvas.offsetTop;
-
-        if (x < 350 && y > 300){
+          
+          if ((x > 150 && x < 350) && (y > 300 && y < 350)){
          
-            
-       //alert("Instructions Box");
-            menuScreen();
+        menuScreen();
       }
     }
 
