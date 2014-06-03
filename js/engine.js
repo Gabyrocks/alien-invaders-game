@@ -93,6 +93,9 @@ var GameScreen = function GameScreen(text,text2,text3,callback) {
   };
 };
 
+
+
+
 ////INSTRUCTIONS SCREEN
 
 var HelpPage = function HelpPage(text,text2,text3,text4,text5,callback) {
