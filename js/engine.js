@@ -335,3 +335,22 @@ var GameAudio = new function() {
     s.parentNode.insertBefore(wf, s);
   })(); 
 
+//ADDING FONTS
+
+  WebFontConfig = {
+    custom: { families: ['Invaders'],
+              urls: [ 'http://www.dafont.com/invaders.font']},
+    active: function() {
+      /* code to execute once all font families are loaded */
+      console.log(" I sure hope my font is loaded now. ");
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
