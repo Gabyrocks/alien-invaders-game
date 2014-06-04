@@ -64,7 +64,7 @@ function loseLifeScreen() {
   }
 
 function menuScreen() {
-    var screen = new HelpPage("k 8","+1 points","2","+3 points","spacebar to start",
+    var screen = new HelpPage("Aliens have just landed on planet Earth","You have been chosen to defend humanity","By pressing the space bar will enable bullets","Catch the mothership for more points","Press space bar to start",
                                  function() {
                                      Game.loadBoard(new GameBoard(1));
                                  });

@@ -98,7 +98,7 @@ var GameScreen = function GameScreen(text,text2,text3,callback) {
 
 ////INSTRUCTIONS SCREEN
 
-var HelpPage = function HelpPage(text,text2,text3,text4,text5,callback) {
+var HelpPage = function GameScreen(text,text2,text3,text4,text5,callback) {
   this.step = function(dt) {
     if(Game.keys['fire'] && callback) callback();
   };
@@ -106,30 +106,31 @@ var HelpPage = function HelpPage(text,text2,text3,text4,text5,callback) {
   this.render = function(canvas) {
     
     canvas.clearRect(0,0,Game.width,Game.height);
-    canvas.font = "40px Invaders";
+    canvas.font = "30px Squada One";
     var measure = canvas.measureText(text);  
     canvas.fillStyle = "#FFFFFF";
     canvas.fillText(text,Game.width/2 - measure.width/2,Game.height/2);
     canvas.font = "30px Squada One";
     canvas.fillStyle = "#BDBDBD";
     var measure2 = canvas.measureText(text2);
-    canvas.fillText(text2,Game.width/2 - measure2.width/2,Game.height/2 + 50);
-    canvas.font = "40px Invaders";
-    canvas.fillStyle = "#FFFFFF";
+    canvas.fillText(text2,Game.width/2 - measure2.width/2,Game.height/2 + 40);
+    canvas.font = "27px Squada One";
+    canvas.fillStyle = "#ADACAC";
     var measure3 = canvas.measureText(text3);
-    canvas.fillText(text3,Game.width/2 - measure3.width/2,Game.height/2 + 110);
-    canvas.font = "30px Squada One";
+    canvas.fillText(text3,Game.width/2 - measure3.width/2,Game.height/2 + 80);
+    canvas.font = "25px Squada One";
     canvas.fillStyle = "#848484";
     var measure4 = canvas.measureText(text4);
-    canvas.fillText(text4,Game.width/2 - measure4.width/2,Game.height/2 + 150);
-    canvas.font = "30px Squada One";
-    canvas.fillStyle = "#848484";
+    canvas.fillText(text4,Game.width/2 - measure4.width/2,Game.height/2 + 120);
+    canvas.font = "24px Squada One";
+    canvas.fillStyle = "#565353";
     var measure5 = canvas.measureText(text5);
-    canvas.fillText(text5,Game.width/2 - measure5.width/2,Game.height/2 + 200);
-      
+    canvas.fillText(text5,Game.width/2 - measure5.width/2,Game.height/2 + 160);
+    
       
   };
 };
+
 
 ////INSTRUCTIONS MENU
 
@@ -335,22 +336,3 @@ var GameAudio = new function() {
     s.parentNode.insertBefore(wf, s);
   })(); 
 
-//ADDING FONTS
-
-  WebFontConfig = {
-    custom: { families: ['Invaders'],
-              urls: [ 'http://www.dafont.com/invaders.font']},
-    active: function() {
-      /* code to execute once all font families are loaded */
-      console.log(" I sure hope my font is loaded now. ");
-    }
-  };
-  (function() {
-    var wf = document.createElement('script');
-    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-        '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-    wf.type = 'text/javascript';
-    wf.async = 'true';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(wf, s);
-  })();
